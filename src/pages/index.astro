@@ -1,10 +1,6 @@
 ---
+import PortfolioPage from '../components/PortfolioPage.astro';
+import { portfolioContent } from '../data/portfolio';
+const content=portfolioContent['pt-BR'];
 ---
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Luiz Morfelle — Engenheiro de Software</title>
-  </head>
-  <body><main><h1>Luiz Morfelle</h1></main></body>
-</html>
+<PortfolioPage locale="pt-BR" content={content} canonicalUrl="https://luizmorfelle.github.io/" />

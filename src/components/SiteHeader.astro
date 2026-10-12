@@ -1,0 +1,5 @@
+---
+interface Props { locale:'pt-BR'|'en'; navigation:{quests:string;experience:string;inventory:string;contact:string}; }
+const {locale,navigation}=Astro.props; const pt=locale==='pt-BR';
+---
+<header class="site-header wrap"><a class="wordmark" href={pt?'/pt/':'/en/'} aria-label="Luiz Morfelle">LM<span>✳</span></a><nav aria-label={pt?'Navegação principal':'Main navigation'}><a href="#quests">{navigation.quests}</a><a href="#experience">{navigation.experience}</a><a href="#inventory">{navigation.inventory}</a><a href="#contact">{navigation.contact}</a></nav><div class="language"><a href="/pt/" aria-current={pt?'page':undefined}>PT</a><span>/</span><a href="/en/" aria-current={!pt?'page':undefined}>EN</a></div></header>
