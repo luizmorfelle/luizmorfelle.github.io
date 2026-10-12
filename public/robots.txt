@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://luizmorfelle.github.io/sitemap.xml
