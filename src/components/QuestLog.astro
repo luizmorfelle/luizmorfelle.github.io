@@ -1,0 +1,10 @@
+---
+import type { Quest } from '../data/portfolio';
+interface Props { quests:Quest[]; title:string; actions:{openQuest:string;closeDialog:string;context:string;contribution:string;technologies:string;outcomes:string}; }
+const {quests,title,actions}=Astro.props;
+---
+<section class="section wrap" id="quests" aria-labelledby="quests-title"><div class="section-heading"><p class="eyebrow">01 / SELECTED WORK</p><h2 id="quests-title">{title}</h2><p>{title==='Quests em destaque'?'Projetos selecionados, contados como pequenas quests.':'Selected work, told as small quests.'}</p></div><div class="quest-grid">{quests.map((quest,index)=><article class="quest-card"><div class="quest-card-top"><span class="quest-index">QUEST 0{index+1}</span><span class="quest-mark" aria-hidden="true">↗</span></div><p class="quest-company">{quest.company}</p><h3>{quest.title}</h3><p>{quest.context}</p><button class="quest-open" type="button" data-open-quest={quest.id}>{actions.openQuest}<span aria-hidden="true"> ↗</span></button><dialog class="quest-dialog" id={`quest-dialog-${quest.id}`} aria-labelledby={`quest-title-${quest.id}`}><div class="dialog-inner"><div class="dialog-top"><p class="eyebrow">QUEST 0{index+1} / {quest.company}</p><button class="dialog-close" type="button" data-close-quest aria-label={actions.closeDialog}>×</button></div><h2 id={`quest-title-${quest.id}`}>{quest.title}</h2><div class="dialog-section"><h3>{actions.context}</h3><p>{quest.context}</p></div><div class="dialog-section"><h3>{actions.contribution}</h3><ul>{quest.contribution.map(item=><li>{item}</li>)}</ul></div><div class="dialog-section"><h3>{actions.technologies}</h3><div class="tag-list">{quest.technologies.map(tech=><span class="skill-chip">{tech}</span>)}</div></div><div class="dialog-section"><h3>{actions.outcomes}</h3><ul>{quest.outcomes.map(item=><li>{item}</li>)}</ul></div></div></dialog></article>)}</div></section>
+<script>
+  import { initQuestDialogs } from '../scripts/quest-dialogs';
+  initQuestDialogs(document);
+</script>
