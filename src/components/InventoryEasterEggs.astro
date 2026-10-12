@@ -1,0 +1,15 @@
+---
+import zelda from '../assets/inventory/zelda-triforce.svg';
+import lantern from '../assets/inventory/green-lantern-ring.svg';
+import adventure from '../assets/inventory/adventure-time-sword.svg';
+import dragon from '../assets/inventory/dragon-ball.svg';
+import strawhat from '../assets/inventory/one-piece-straw-hat.svg';
+import ring from '../assets/inventory/lotr-ring.svg';
+import d20 from '../assets/inventory/dnd-d20.svg';
+import bonfire from '../assets/inventory/dark-souls-bonfire.svg';
+import alchemy from '../assets/inventory/fullmetal-circle.svg';
+import knight from '../assets/inventory/hollow-knight-mask.svg';
+import needle from '../assets/inventory/silksong-needle.svg';
+const items=[zelda,lantern,adventure,dragon,strawhat,ring,d20,bonfire,alchemy,knight,needle];
+---
+<div class="inventory-grid" aria-hidden="true">{items.map((item)=><div class="inventory-slot"><img src={item.src} alt="" draggable="false"/></div>)}</div>
